@@ -1,70 +1,114 @@
-# Getting Started with Create React App
+# Meet Application
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+The objective of this project is to build a serverless, progressive web application with React using a test-driven development technique. The application uses the Google Calendar API to fetch upcoming events. Users will be able to filter events by city, show/hide event details, specify the number of events shown, use the app offline, add an app shortcut to the home screen, and view a chart showing the number of upcoming events by city. 
 
-## Available Scripts
+# User Stories 
 
-In the project directory, you can run:
+<b>Feature 1: Filter events by city</b>
+<br/>
+As a user, I should be able to filter events by city so that I can see the list of events that take place in that city.
+<br/>
+<br/>
+<b>Feature 2: Show/hide an event’s details</b>
+<br/>
+As a user, I should be able to show/hide event details so that I can see more/less information about an event. 
+<br/>
+<br/>
+<b>Feature 3: Specify number of events</b>
+<br/>
+As a user, I should be able to specify the number of events I want to view in the app so that I can see more or fewer events in the events list at once. 
+<br/>
+<br/>
+<b>Feature 4: Use the app offline</b>
+<br/>
+As a user, I should be able to use the app when offline so that I can see the events I viewed the last time I was online. 
+<br/>
+<br/>
+<b>Feature 5: Data visualization</b>
+<br/>
+As a user, I should be able to see a chart showing the upcoming events in each city so that I know what events are organized in which city. 
+<br/>
+<br/>
+<b>Feature 6: Add an app shortcut to the home screen</b>
+<br/>
+As a user, I should be able to add the app shortcut to my home screen so that I can open the app faster. 
+<br/>
+<br/>
+# Test Scenarios
+<b>Feature 1: Filter events by city</b>
+<br/>
+Scenario 1: When user hasn’t searched for a city, show upcoming events from all cities
+Given user hasn’t searched for any city
+When the user opens the app
+Then the user should see a list of all upcoming events
+<br/>
+<br/>
+Scenario 2: User should see a list of suggestions when they search for a city
+Given the main page is open
+When the user starts typing in the city textbox
+Then the user should see a list of cities that match what they’ve typed
+<br/>
+<br/>
+Scenario 3: User can select a city from the suggested list
+Given the user was typing “Berlin” in the city textbox and the list of suggested cities is showing
+When the user selects a city from the list (e.g., “Berlin, Germany”) 
+Then their city should be changed to that city and the user should receive a list of upcoming events in that city 
+<br/>
+<br/>
+<b>Feature 2: Show/hide an event’s details</b>
+<br/>
+Scenario 1: An event element is collapsed by default 
+Given the main page is open, whether filtered by city or not
+When the user scrolls through the app
+Then the user should see a list of all upcoming events with their details hidden
+<br/>
+<br/>
+Scenario 2: User can expand an event to see its details
+Given the main page is open, whether filtered by city or not
+When the user clicks on the “Show Details” button for any displayed event
+Then the user should see an expanded view of that event’s details
+<br/>
+<br/>
+Scenario 3: User can collapse an event to hide its details
+Given an event has been expanded
+When the user clicks on the “Hide Details” button for that event 
+Then the user should see the event has been collapsed and its details are hidden 
+<br/>
+<br/>
+<b>Feature 3: Specify number of events</b>
+<br/>
+Scenario 1: When user hasn’t specified a number, 32 is the default number 
+Given the main page is open and the user hasn’t specified a number in the “Number of Events” field
+When the user scrolls through the app
+Then the user should see a default of 32 events displayed on the main page
+<br/>
+<br/>
+Scenario 2: User can change the number of events they want to see
+Given the main page is open
+When the user types in a specific number of events in the “Number of Events” field
+Then the user should see that specific amount of events displayed on the main page 
+<br/>
+<br/>
+<b>Feature 4: Use the app when offline</b>
+<br/>
+Scenario 1: Show cached data when there’s no internet connection
+Given the user is in an area without internet connection
+When the user opens the app
+Then the user should see the events they viewed the last time they were online
+<br/>
+<br/>
+Scenario 2: Show error when user changes the settings 
+Given the user is in an area without internet connection
+When the user changes the city in the city box
+Then the user should see an error loading the new data
+<br/>
+<br/>
+<b>Feature 5: Data Visualization</b>
+<br/>
+Scenario 1: Show a chart with the number of upcoming events in each city
+Given the user is on the main page
+When the user scrolls with or without filters by city
+Then the user should see a chart showing the number of upcoming events in each city 
+<br/>
+<br/>
 
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
