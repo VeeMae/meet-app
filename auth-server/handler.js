@@ -89,11 +89,11 @@ module.exports.getCalendarEvents = async (event) => {
   return new Promise((resolve, reject) => {
 
         calendar.events.list({
-        calendarId: calendar_id,
-        auth: oAuth2Client,
-        timeMin: new Date().toISOString(),
-        singleEvents: true,
-        orderBy: "startTime",
+            calendarId: calendar_id,
+            auth: oAuth2Client,
+            timeMin: new Date().toISOString(),
+            singleEvents: true,
+            orderBy: "startTime",
         },
         (error, response) => {
             if (error) {
