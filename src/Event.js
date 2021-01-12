@@ -15,14 +15,15 @@ class Event extends Component {
     };
 
     render() {
-        const event  = this.props.event;
+        const { event }  = this.props;
 
         return (
             <div className="event">
                 <div className="eventCard">
-                    <p className="eventCard--name">{event.summary}</p>
-                    <p className="eventCard--date">{event.start}</p>
-                    <p className="eventCard--location">{event.location}</p>
+                    <h1 className="eventCard--name">{event.summary}</h1>
+                    <p className="eventCard--date">Starts at: {event.start.dateTime}</p>
+                    <p className="eventCard--date">Timezone: {event.start.timeZone}</p>
+                    <p className="eventCard--location">Location: {event.location}</p>
 
                     {!this.state.showDetails &&
                         <button className="details-btn" onClick={() => this.handleShowDetails()}>Show Details</button>
@@ -30,8 +31,8 @@ class Event extends Component {
 
                     {this.state.showDetails &&
                         (<div className="eventExpanded">
-                            <p className="eventCard--link">{event.htmlLink}</p>
-                            <p className="eventCard--description">{event.description}</p>
+                            <p className="eventCard--link">Link: {event.htmlLink}</p>
+                            <p className="eventCard--description">Description: {event.description}</p>
                             <button className="details-btn" onClick={() => this.handleShowDetails()}>Hide Details</button>
                         </div>)
                     }

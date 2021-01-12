@@ -70,4 +70,25 @@ describe('<App /> integration', () => {
         AppWrapper.unmount();
     });
 
+    test('App passes "numOfEvents" state as a prop to NumberOfEvents', () => {
+        const AppWrapper = mount(<App />);
+        const AppNumOfEventsState = AppWrapper.state('numOfEvents');
+        expect(AppNumOfEventsState).not.toEqual(undefined);
+        expect(AppWrapper.find(NumberOfEvents).props().numOfEvents).toEqual(AppNumOfEventsState);
+        AppWrapper.unmount();
+    })
+
+    test('App displays the number of events specified by the user', () => {
+        const AppWrapper = mount(<App />);
+        const NumOfEventsWrapper = AppWrapper.find(NumberOfEvents);
+        NumOfEventsWrapper.setState({ numOfEvents: 32 });
+        const eventObject = { target: { value: 5 } };
+        NumOfEventsWrapper.find('.eventNumInput').simulate('change', eventObject);
+        expect(NumOfEventsWrapper.state('numOfEvents')).toEqual(5);
+        expect(AppWrapper.instance().updateEvents).toEqual(5);
+        AppWrapper.unmount();
+
+    })
+
+
 })

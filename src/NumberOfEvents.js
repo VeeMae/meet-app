@@ -10,10 +10,12 @@ class NumberOfEvents extends Component {
         this.setState({ numOfEvents: value });
 
         if (value < 1 && this.state.numOfEvents === 0) {
-            console.error('Please choose a number greater than 0')
+            console.error('Please choose a number greater than 0');
         } else {
             this.setState.numOfEvents = value;
         }
+
+        this.props.updateEvents(null, value);
     }
 
     render() {
