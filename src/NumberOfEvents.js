@@ -7,6 +7,7 @@ class NumberOfEvents extends Component {
 
     inputHandler = (event) => {
         const value = event.target.value;
+        this.props.updateEvents(null, value);
         this.setState({ numOfEvents: value });
 
         if (value < 1 && this.state.numOfEvents === 0) {
@@ -14,8 +15,6 @@ class NumberOfEvents extends Component {
         } else {
             this.setState.numOfEvents = value;
         }
-
-        this.props.updateEvents(null, value);
     }
 
     render() {
