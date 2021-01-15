@@ -7,7 +7,7 @@ describe('<Event /> component', () => {
 
     let EventWrapper;
     beforeAll(() => {
-        EventWrapper = shallow(<Event event={mockData} />);
+        EventWrapper = shallow(<Event event={mockData[0]} />);
     })
 
     test('render event card', () => {
@@ -16,7 +16,7 @@ describe('<Event /> component', () => {
 
     test('render the contents of the event card', () => {
         EventWrapper.setState({ showDetails: false });
-        expect(EventWrapper.find('.eventCard').children()).toHaveLength(4);
+        expect(EventWrapper.find('.eventCard').children()).toHaveLength(5);
     })
 
     test('render the eventExpanded element', () => {
