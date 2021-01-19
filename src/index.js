@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
+import * as atatus from 'atatus-spa';
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
@@ -15,3 +16,4 @@ ReactDOM.render(
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();
+atatus.config('e95452b92d2a42ad86ea5c621b3820ae').install();
