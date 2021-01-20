@@ -85,10 +85,6 @@ input[type="number"] {
   top: 10px;
 }
 
-.ErrorAlert {
-  top: 150px;
-}
-
 .event {
   padding: 10px 10px 35px;
   margin-bottom: 10px;
@@ -122,9 +118,5 @@ input[type="number"] {
   .Alert {
     top: 60px;
     font-size: 0.9rem;
-  }
-
-  #ErrorAlert {
-    top: 140px;
   }
 }
