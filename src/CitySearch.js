@@ -32,6 +32,7 @@ class CitySearch extends Component {
     handleItemClicked = (suggestion) => {
         this.setState({
             query: suggestion,
+            infoText: '',
             showSuggestions: false
         });
 

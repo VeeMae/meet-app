@@ -101,6 +101,7 @@ label.CitySearch-label {
   top: 12px;
   font-weight: bold;
   background-color: #e8eced;
+  z-index: 10;
 }
 
 .event {
