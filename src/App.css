@@ -10,7 +10,7 @@
 
 ul {
   padding: 0;
-  margin: 10px auto;
+  margin: 20px auto;
   list-style: none;
 }
 
@@ -50,13 +50,19 @@ input[type="number"] {
   flex-direction: column;
   flex-basis: 300px;
   max-width: 300px;
-  margin: 20px auto;
+  margin: 15px auto;
   position: relative;
+}
+
+.NumberOfEvents {
+  width: 250px;
+  margin: 20px auto;
+  text-align: center;
 }
 
 label.eventNumLabel,
 label.CitySearch-label {
-  padding: 5px;
+  padding: 10px;
 }
 
 .suggestions {
@@ -89,11 +95,12 @@ label.CitySearch-label {
 .Alert {
   position: fixed;
   top: 10px;
+  font-weight: bold;
 }
 
 .event {
   padding: 10px 10px 35px;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
   text-align: left;
   border: 1px solid #ccc;
   border-radius: 4px;
@@ -112,12 +119,6 @@ label.CitySearch-label {
 
 .description {
   overflow-x: hidden;
-}
-
-.NumberOfEvents {
-  width: 250px;
-  margin: 20px auto;
-  text-align: center;
 }
 
 @media screen and (max-width: 767px) {
