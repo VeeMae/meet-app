@@ -8,12 +8,16 @@ class Event extends Component {
 
     handleShowDetails = () => {
         if (this.state.showDetails === false) {
-            this.setState({ showDetails: true });
+            this.setState({
+                showDetails: true,
+                infoText: 'Please make sure to check the timezone to participate in the event at the proper time. Thank you!'
+            });
+
         }
         else {
             this.setState({
                 showDetails: false,
-                infoText: 'Please make sure to check the timezone to participate in the event at the proper time. Thank you!'
+
             })
         }
     };
