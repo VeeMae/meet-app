@@ -35,10 +35,11 @@ class Event extends Component {
 
                     {this.state.showDetails &&
                         (<div className="eventExpanded">
+                            <WarningAlert text={this.state.infoText} />
                             <p className="eventCard--link">Link: {event.htmlLink}</p>
                             <p className="eventCard--description">Description: {event.description}</p>
                             <button className="details-btn" onClick={() => this.handleShowDetails()}>Hide Details</button>
-                            <WarningAlert text={this.state.infoText} />
+
                         </div>)
 
                     }
