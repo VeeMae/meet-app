@@ -37,8 +37,8 @@ class Event extends Component {
                         (<div className="eventExpanded">
                             <WarningAlert text={this.state.infoText} />
                             <p className="eventCard--link"><a href={event.htmlLink}>Link to Calendar Invite</a></p>
-                        <p className="eventCard--description">Description: {event.description}</p>
-                        <p className="eventCard--organizer">Organizer: {event.organizer.email}</p>
+                            <p className="eventCard--description">Description: {event.description}</p>
+                            <p className="eventCard--organizer">Organizer: {event.organizer.email}</p>
                             <button className="details-btn" onClick={() => this.handleShowDetails()}>Hide Details</button>
 
                         </div>)
