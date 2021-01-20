@@ -98,7 +98,7 @@ label.CitySearch-label {
 
 .Alert {
   position: fixed;
-  top: 10px;
+  top: 12px;
   font-weight: bold;
 }
 
@@ -127,7 +127,7 @@ label.CitySearch-label {
 
 @media screen and (max-width: 767px) {
   .Alert {
-    top: 60px;
+    top: 8px;
     font-size: 0.9rem;
   }
 }
