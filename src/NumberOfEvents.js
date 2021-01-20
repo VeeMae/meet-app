@@ -11,10 +11,9 @@ class NumberOfEvents extends Component {
         this.props.updateEvents(null, value);
         this.setState({ numOfEvents: value });
 
-        if (value < 1 || value >= 33) {
+        if (value < 1) {
             this.setState({
-                infoText: 'Please input a number between 1 and 32.',
-                numOfEvents: null
+                infoText: 'Please input a number greater than 1.',
             })
         } else {
             this.setState({
