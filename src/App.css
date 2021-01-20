@@ -85,7 +85,7 @@ input[type="number"] {
   top: 10px;
 }
 
-.ErrorAlert {
+#ErrorAlert {
   top: 150px;
 }
 
@@ -124,7 +124,7 @@ input[type="number"] {
     font-size: 0.9rem;
   }
 
-  .ErrorAlert {
+  #ErrorAlert {
     top: 140px;
   }
 }
