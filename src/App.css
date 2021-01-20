@@ -100,6 +100,7 @@ label.CitySearch-label {
   position: fixed;
   top: 12px;
   font-weight: bold;
+  background-color: #e6eef2;
 }
 
 .event {

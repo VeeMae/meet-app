@@ -3,14 +3,12 @@ import React, { Component } from 'react';
 class Alert extends Component {
     constructor(props) {
         super(props);
-        this.color = null;
-        this.bgColor = '#e6eef2';
+        this.color = null;;
     }
 
     getStyle = () => {
         return {
-            color: this.color,
-            bgColor: this.bgColor
+            color: this.color
         };
     }
 
