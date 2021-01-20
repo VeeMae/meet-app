@@ -37,6 +37,10 @@ input[type="number"] {
   height: 38px;
 }
 
+input[type="number"] {
+  margin: 5px;
+}
+
 .city {
   width: 250px;
 }
