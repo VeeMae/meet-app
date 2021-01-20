@@ -10,20 +10,21 @@ class CitySearch extends Component {
 
     handleInputChanged = (event) => {
         const value = event.target.value;
-        this.setState({ showSuggestions: true });
         const suggestions = this.props.locations.filter((location) => {
             return location.toUpperCase().indexOf(value.toUpperCase()) > -1
         });
         if (suggestions.length === 0) {
             this.setState({
                 query: value,
-                infoText: "City unavailable. Please type another city."
+                infoText: "City unavailable. Please type another city.",
+                showSuggestions: false
             });
         } else {
             return this.setState({
                 query: value,
                 suggestions,
-                infoText: ''
+                infoText: '',
+                showSuggestions: true
             });
         }
     };
