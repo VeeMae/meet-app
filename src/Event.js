@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { WarningAlert } from './Alert';
 
 class Event extends Component {
     state = {
@@ -10,12 +11,15 @@ class Event extends Component {
             this.setState({ showDetails: true });
         }
         else {
-            this.setState({ showDetails: false })
+            this.setState({
+                showDetails: false,
+                infoText: 'Please make sure to check the timezone to participate in the event at the proper time. Thank you!'
+            })
         }
     };
 
     render() {
-        const { event }  = this.props;
+        const { event } = this.props;
 
         return (
             <div className="event">
@@ -34,7 +38,9 @@ class Event extends Component {
                             <p className="eventCard--link">Link: {event.htmlLink}</p>
                             <p className="eventCard--description">Description: {event.description}</p>
                             <button className="details-btn" onClick={() => this.handleShowDetails()}>Hide Details</button>
+                            <WarningAlert text={this.state.infoText} />
                         </div>)
+
                     }
                 </div>
             </div>
