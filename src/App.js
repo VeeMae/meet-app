@@ -5,6 +5,7 @@ import './nprogress.css';
 import EventList from './EventList';
 import CitySearch from './CitySearch';
 import NumberOfEvents from './NumberOfEvents';
+import { OfflineWarning } from './Alert';
 
 
 class App extends Component {
@@ -51,16 +52,32 @@ class App extends Component {
                 });
             }
         });
+        window.addEventListener('offline', this.networkChangeHandler());
+        window.addEventListener('online', this.networkChangeHandler());
+
     }
 
     componentWillUnmount(){
         this.mounted = false;
     }
 
+    networkChangeHandler = () => {
+        if (navigator.onLine === false) {
+            return this.setState({
+                infoText: 'No network connection detected. In order to get a list of updated events, please connect to a network.'
+            });
+        } else {
+            return this.setState({
+                infoText: ''
+            });
+        }
+    }
+
 
     render() {
          return (
              <div className="App">
+                 <OfflineWarning text={this.state.infoText} />
                  <CitySearch locations={this.state.locations} updateEvents={this.updateEvents}/>
                  <NumberOfEvents numOfEvents={this.state.numOfEvents} updateEvents={this.updateEvents}/>
                  <EventList events={this.state.events}/>

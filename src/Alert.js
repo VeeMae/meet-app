@@ -43,4 +43,11 @@ class WarningAlert extends Alert {
     };
 }
 
-export { InfoAlert, ErrorAlert, WarningAlert };
+class OfflineWarning extends Alert {
+    constructor(props) {
+        super(props);
+        this.color = '#28587B'
+    }
+}
+
+export { InfoAlert, ErrorAlert, WarningAlert, OfflineWarning };
