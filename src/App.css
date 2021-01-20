@@ -10,6 +10,7 @@
 
 ul {
   padding: 0;
+  margin: 10px auto;
   list-style: none;
 }
 
@@ -49,8 +50,13 @@ input[type="number"] {
   flex-direction: column;
   flex-basis: 300px;
   max-width: 300px;
-  margin: auto;
+  margin: 20px auto;
   position: relative;
+}
+
+label.eventNumLabel,
+label.CitySearch-label {
+  padding: 5px;
 }
 
 .suggestions {
