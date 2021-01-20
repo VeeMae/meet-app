@@ -41,6 +41,14 @@ class WarningAlert extends Alert {
         super(props);
         this.color = '#ED7D3A'
     };
+
+     render() {
+        return (
+            <div className="ErrorAlert">
+                <p style={this.getStyle()}>{this.props.text}</p>
+            </div>
+        )
+    }
 }
 
 export { InfoAlert, ErrorAlert, WarningAlert };
