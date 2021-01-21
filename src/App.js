@@ -16,6 +16,24 @@ class App extends Component {
         currentLocation: 'all'
     }
 
+    componentDidMount() {
+        this.mounted = true;
+        getEvents().then((events) => {
+            if (this.mounted) {
+                this.setState({
+                    events: events.slice(0, this.state.numOfEvents),
+                    locations: extractLocations(events)
+                });
+            }
+        });
+        window.addEventListener('offline', this.networkChangeHandler());
+        window.addEventListener('online', this.networkChangeHandler());
+    }
+
+    componentWillUnmount(){
+        this.mounted = false;
+    }
+
     updateEvents = (location, eventCount) => {
         if (location) {
           getEvents().then((events) => {
@@ -42,25 +60,6 @@ class App extends Component {
         }
     }
 
-    componentDidMount() {
-        this.mounted = true;
-        getEvents().then((events) => {
-            if (this.mounted) {
-                this.setState({
-                    events: events.slice(0, this.state.numOfEvents),
-                    locations: extractLocations(events)
-                });
-            }
-        });
-        window.addEventListener('offline', this.networkChangeHandler());
-        window.addEventListener('online', this.networkChangeHandler());
-
-    }
-
-    componentWillUnmount(){
-        this.mounted = false;
-    }
-
     networkChangeHandler = () => {
         if (navigator.onLine === false) {
             return this.setState({
@@ -77,10 +76,10 @@ class App extends Component {
     render() {
          return (
              <div className="App">
-                 <OfflineWarning text={this.state.infoText} />
-                 <CitySearch locations={this.state.locations} updateEvents={this.updateEvents}/>
-                 <NumberOfEvents numOfEvents={this.state.numOfEvents} updateEvents={this.updateEvents}/>
-                 <EventList events={this.state.events}/>
+                <OfflineWarning text={this.state.infoText} />
+                <CitySearch locations={this.state.locations} updateEvents={this.updateEvents} />
+                <NumberOfEvents numOfEvents={this.state.numOfEvents} updateEvents={this.updateEvents}/>
+                 <EventList events={this.state.events} />
             </div>
         );
      }
