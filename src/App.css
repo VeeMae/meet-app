@@ -127,6 +127,12 @@ label.CitySearch-label {
   overflow-x: hidden;
 }
 
+.data-vis-wrapper {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+}
+
 @media screen and (max-width: 767px) {
   .Alert {
     top: 8px;
