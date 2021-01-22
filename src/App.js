@@ -6,6 +6,9 @@ import EventList from './EventList';
 import CitySearch from './CitySearch';
 import NumberOfEvents from './NumberOfEvents';
 import { OfflineWarning } from './Alert';
+import {
+  ScatterChart, Scatter, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer
+} from 'recharts';
 
 
 class App extends Component {
@@ -76,14 +79,39 @@ class App extends Component {
         }
     }
 
+    getData = () => {
+        const { locations, events } = this.state;
+        const data = locations.map((location) => {
+            const number = events.filter((event) => event.location === location).length;
+            const city = location.split(' ').shift();
+            return { city, number };
+        })
+        return data;
+    }
+
 
     render() {
          return (
              <div className="App">
+                 <h1>Meet App</h1>
+                 <h3>A Place to Find Events Near Your City</h3>
                 <OfflineWarning text={this.state.infoText} />
                 <CitySearch locations={this.state.locations} updateEvents={this.updateEvents} />
-                <NumberOfEvents numOfEvents={this.state.numOfEvents} updateEvents={this.updateEvents}/>
-                 <EventList events={this.state.events} />
+                <NumberOfEvents numOfEvents={this.state.numOfEvents} updateEvents={this.updateEvents} />
+
+                <h3>Events in Each City</h3>
+
+                 <ResponsiveContainer height={400}>
+                     <ScatterChart margin={{ top: 20, right: 20, bottom: 20, left: 20 }}>
+                        <CartesianGrid strokeDasharray="3 3" />
+                        <XAxis type="category" dataKey="city" name="City" />
+                        <YAxis type="number" dataKey="number" name="Number of events" allowDecimals={false} />
+                        <Tooltip cursor={{ strokeDasharray: '3 3' }} />
+                        <Scatter data={this.getData()} fill="#8884d8" />
+                    </ScatterChart>
+                </ResponsiveContainer>
+
+                <EventList events={this.state.events} />
             </div>
         );
      }
