@@ -51,7 +51,10 @@ class App extends Component {
                 : response.events.filter(
                     (event) => event.location === this.state.currentLocation
                   );
-            const filteredEvents = locationEvents.slice(0, eventCount);
+            // If no eventCount argument is passed to updateEvents() (like when componentDidMount() calls it),
+            // It will default to slicing the numOfEvents that is already in the state.
+            const numEvents = eventCount || this.state.numOfEvents;
+            const filteredEvents = locationEvents.slice(0, numEvents);
             return this.setState({
               events: filteredEvents,
               numOfEvents: eventCount,
