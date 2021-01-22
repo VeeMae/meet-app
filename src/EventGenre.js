@@ -23,9 +23,9 @@ const EventGenre = ({ events }) => {
 
 
     return (
-        <ResponsiveContainer height={400} width='50%'>
+        <ResponsiveContainer height={400}>
             <PieChart>
-                <Pie data={data} cx={200} cy={200} labelLine={false} legendType="square" outerRadius={80} fill="#8884d8" datakey="value" label={({ name, percent }) => `${name} ${(percent * 100).toFixed(0)}%`}>
+                <Pie data={data} cx="50%" cy="50%" labelLine={false} legendType="square" outerRadius={80} fill="#8884d8" datakey="value" label={({ name, percent }) => `${name} ${(percent * 100).toFixed(0)}%`}>
                     {
                         data.map((entry, index) => <Cell key={`cell-${index}`} fill={colors[index]}/>)
                     }

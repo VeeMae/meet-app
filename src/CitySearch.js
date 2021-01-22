@@ -17,7 +17,7 @@ class CitySearch extends Component {
         if (suggestions.length === 0) {
             this.setState({
                 query: value,
-                infoText: "City unavailable. Please type another city.",
+                infoText: `${value} is unavailable. Please search for another city. `,
                 showSuggestions: false
             });
         } else {
