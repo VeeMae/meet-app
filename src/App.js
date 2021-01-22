@@ -56,7 +56,7 @@ class App extends Component {
                 : response.events.filter(
                     (event) => event.location === this.state.currentLocation
                   );
-            const filteredEvents = locationEvents.slice(0, this.state.numOfEvents);
+            const filteredEvents = locationEvents.slice(0, eventCount);
             return this.setState({
               events: filteredEvents,
               numOfEvents: eventCount,
