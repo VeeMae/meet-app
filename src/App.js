@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { extractLocations, getEvents } from './api';
+import { getEvents } from './api';
 import './App.css';
 import './nprogress.css';
 import EventList from './EventList';
@@ -18,14 +18,9 @@ class App extends Component {
 
     componentDidMount() {
         this.mounted = true;
-        getEvents().then((response) => {
-          if (this.mounted) {
-            this.setState({
-              events: response.events.slice(0, this.state.numOfEvents),
-              locations: response.locations,
-            });
-          }
-        });
+        if (this.mounted) {
+          this.updateEvents();
+        }
         window.addEventListener('offline', this.networkChangeHandler());
         window.addEventListener('online', this.networkChangeHandler());
       }
