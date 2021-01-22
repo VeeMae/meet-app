@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { getEvents } from './api';
+import { extractLocations, getEvents } from './api';
 import './App.css';
 import './nprogress.css';
 import EventList from './EventList';
@@ -22,7 +22,7 @@ class App extends Component {
           if (this.mounted) {
             this.setState({
               events: response.events.slice(0, this.state.numOfEvents),
-              locations: response.locations,
+              locations: extractLocations(response.locations),
             });
           }
         });
