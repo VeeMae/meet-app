@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { extractLocations, getEvents } from './api';
+import { getEvents } from './api';
 import './App.css';
 import './nprogress.css';
 import EventList from './EventList';
@@ -18,14 +18,9 @@ class App extends Component {
 
     componentDidMount() {
         this.mounted = true;
-        getEvents().then((response) => {
-          if (this.mounted) {
-            this.setState({
-              events: response.events.slice(0, this.state.numOfEvents),
-              locations: response.locations,
-            });
-          }
-        });
+        if (this.mounted) {
+          this.updateEvents();
+        }
         window.addEventListener('offline', this.networkChangeHandler());
         window.addEventListener('online', this.networkChangeHandler());
       }
@@ -56,7 +51,10 @@ class App extends Component {
                 : response.events.filter(
                     (event) => event.location === this.state.currentLocation
                   );
-            const filteredEvents = locationEvents.slice(0, eventCount);
+            // If no eventCount argument is passed to updateEvents() (like when componentDidMount() calls it),
+            // It will default to slicing the numOfEvents that is already in the state.
+            const numEvents = eventCount || this.state.numOfEvents;
+            const filteredEvents = locationEvents.slice(0, numEvents);
             return this.setState({
               events: filteredEvents,
               numOfEvents: eventCount,
