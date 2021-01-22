@@ -21,8 +21,8 @@ class App extends Component {
         getEvents().then((response) => {
           if (this.mounted) {
             this.setState({
-              events: response.slice(0, this.state.numOfEvents),
-              locations: extractLocations(response),
+              events: response.events.slice(0, this.state.numOfEvents),
+              locations: response.locations,
             });
           }
         });
