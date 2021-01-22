@@ -51,7 +51,8 @@ export const getEvents = async () => {
     }
 
     NProgress.done();
-    return result.data.events;
+    // This enables us both the events and the locations we extracted
+    return { events: result.data.events, locations} ;
   }
 };
 
