@@ -4,8 +4,8 @@ import React from "react";
 function Login() {
   return (
     <div className='App'>
-      <h1>Welcome to the Meet app</h1>
-      <h4>Log in to see upcoming events for Web Development around the world</h4>
+      <h1>Welcome to the Meet App</h1>
+      <h4>Please log in to view Web Development events around the world</h4>
       <div className='button_cont' align='center'>
         <div class='google-btn'>
           <div class='google-icon-wrapper'>
@@ -25,7 +25,7 @@ function Login() {
         </div>
       </div>
       <a href='https://veemae.github.io/meet-app/privacyPolicy.html' className="privacyLink" rel='nofollow noopener'>
-        Privacy policy
+        Privacy Policy
       </a>
     </div>
   );
