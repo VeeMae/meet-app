@@ -20,7 +20,7 @@ h1 {
 }
 
 h2 {
-  font-weight: 400;
+  font-weight: 700;
 }
 
 h3 {
@@ -133,11 +133,12 @@ label.CitySearch-label {
 
 .Alert {
   position: fixed;
-  top: 108px;
+  top: 110px;
+  right: 95px;
   font-weight: bold;
   background-color: #fff;
-  z-index: 10;
-
+  font-size: 1.5rem;
+  z-index: 100;
   animation: 2s shakeFx ease-in-out infinite;
 }
 
