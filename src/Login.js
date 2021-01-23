@@ -5,7 +5,7 @@ function Login() {
   return (
     <div className='App'>
       <h1>Welcome to the Meet app</h1>
-      <h4>Log in to see upcoming events around the world for full-stack developers</h4>
+      <h4>Log in to see upcoming events for Web Development around the world</h4>
       <div className='button_cont' align='center'>
         <div class='google-btn'>
           <div class='google-icon-wrapper'>
@@ -20,11 +20,11 @@ function Login() {
             rel='nofollow noopener'
             class='btn-text'
           >
-            <b>Sign in with google</b>
+            <b>Sign in with Google</b>
           </a>
         </div>
       </div>
-      <a href='https://veemae.github.io/meet-app/privacyPolicy.html' rel='nofollow noopener'>
+      <a href='https://veemae.github.io/meet-app/privacyPolicy.html' className="privacyLink" rel='nofollow noopener'>
         Privacy policy
       </a>
     </div>
