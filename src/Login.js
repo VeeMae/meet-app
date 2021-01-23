@@ -24,7 +24,7 @@ function Login() {
           </a>
         </div>
       </div>
-      <a href='https://veemae.github.io/meet/privacyPolicy.html' rel='nofollow noopener'>
+      <a href='https://veemae.github.io/meet-app/privacyPolicy.html' rel='nofollow noopener'>
         Privacy policy
       </a>
     </div>
