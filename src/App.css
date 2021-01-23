@@ -133,10 +133,12 @@ label.CitySearch-label {
 
 .Alert {
   position: fixed;
-  top: 7px;
+  top: 108px;
   font-weight: bold;
-
+  background-color: #fff;
   z-index: 10;
+
+  animation: 2s shakeFx ease-in-out infinite;
 }
 
 .event {
@@ -175,10 +177,26 @@ div#undefined.recharts-responsive-container {
   width: 100%;
 }
 
+/* Animations */
+
+@keyframes shakeFx {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(10px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
 @media screen and (max-width: 767px) {
   .Alert {
     top: 5px;
+    left: 0;
     font-size: 1rem;
+    padding: 10px;
   }
   h1 {
     margin: 15px 5px auto;
@@ -200,5 +218,21 @@ div#undefined.recharts-responsive-container {
 
   .recharts-surface {
     overflow: visible;
+  }
+
+  .details-btn {
+    position: absolute;
+    right: 10px;
+    bottom: 25px;
+    padding: 5px;
+  }
+
+  h1 {
+    margin: 0 auto;
+  }
+
+  .event {
+    padding: 20px;
+    padding-bottom: 80px;
   }
 }
