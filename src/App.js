@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
-import { getEvents } from './api';
+import { getEvents, checkToken } from './api';
 import './App.css';
 import './nprogress.css';
 import EventList from './EventList';
 import CitySearch from './CitySearch';
 import NumberOfEvents from './NumberOfEvents';
 import EventGenre from './EventGenre';
+import Login from './Login';
 import { OfflineWarning } from './Alert';
 import {
   ScatterChart, Scatter, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer
@@ -17,13 +18,22 @@ class App extends Component {
         events: [],
         locations: [],
         numOfEvents: 32,
-        currentLocation: 'all'
+        currentLocation: 'all',
+        tokenCheck: false
     }
 
-    componentDidMount() {
+    async componentDidMount() {
+        const accessToken = localStorage.getItem('access_token');
+        const validToken = accessToken !== null ? await checkToken(accessToken) : false;
+        this.setState({ tokenCheck: validToken });
+        if (validToken === true) this.updateEvents()
+        const searchParams = new URLSearchParams(window.location.search);
+        const code = searchParams.get('code');
+
         this.mounted = true;
-        if (this.mounted) {
-          this.updateEvents();
+        if (code && this.mounted === true && validToken === false) {
+            this.setState({ tokenCheck: true });
+            this.updateEvents();
         }
         window.addEventListener('offline', this.networkChangeHandler());
         window.addEventListener('online', this.networkChangeHandler());
@@ -92,7 +102,10 @@ class App extends Component {
 
 
     render() {
-         return (
+        return this.state.tokenCheck === false ? (
+            <div className="App">
+                <Login />
+            </div>) : (
              <div className="App">
                  <h1>Meet App</h1>
                  <h3>A Place to Find Events Near Your City</h3>
