@@ -2,7 +2,15 @@
 
 The objective of this project is to build a serverless, progressive web application with React using a test-driven development technique. The application uses the Google Calendar API to fetch upcoming events. Users will be able to filter events by city, show/hide event details, specify the number of events shown, use the app offline, add an app shortcut to the home screen, and view a chart showing the number of upcoming events by city. 
 
-# User Stories 
+![Chat Application Demo](/meet-app-gif.gif)
+
+## How To Use
+
+- Go to this link: https://veemae.github.io/meet-app/
+- Sign in using Google Accounts to interact with the application.
+- <strong>Disclaimer:</strong> This application has not been verified by Google because it is being hosted on Github, and therefore, not a domain I own. Since Github owns the domain it is being hosted on, the app is flagged as unsafe at the moment. However, this does NOT actually pose any negative risks, since the Google Calendar API being used for this application is owned and created by CareerFoundry for its Web Dev program. This means, the application does not collect any data from its users, whatsoever, and is only being strictly used for educational purposes. So, please continue forward to signing in with your Google account in order to interact with the app. I repeat- no data is collected, so using the app is strictly for educational and demo purposes, and will not affect the users in any negative way. Thank you!
+
+## User Stories 
 
 <b>Feature 1: Filter events by city</b>
 <br/>
@@ -34,7 +42,7 @@ As a user, I should be able to see a chart showing the upcoming events in each c
 As a user, I should be able to add the app shortcut to my home screen so that I can open the app faster. 
 <br/>
 <br/>
-# Test Scenarios
+## Test Scenarios
 <b>Feature 1: Filter events by city</b>
 <br/>
 Scenario 1: When user hasn’t searched for a city, show upcoming events from all cities
