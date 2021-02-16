@@ -1,8 +1,9 @@
 # Meet Application
 
-The objective of this project is to build a serverless, progressive web application with React using a test-driven development technique. The application uses the Google Calendar API to fetch upcoming events. Users will be able to filter events by city, show/hide event details, specify the number of events shown, use the app offline, add an app shortcut to the home screen, and view a chart showing the number of upcoming events by city. 
+## Objective
+Build a serverless, progressive web application with React using a test-driven development technique. The application uses the Google Calendar API to fetch upcoming events. Users will be able to filter events by city, show/hide event details, specify the number of events shown, use the app offline, add an app shortcut to the home screen, and view a chart showing the number of upcoming events by city. 
 
-![Chat Application Demo](/meet-app-gif.gif)
+![Meet Application Demo](/meet-app-gif.gif)
 
 ## How To Use
 
